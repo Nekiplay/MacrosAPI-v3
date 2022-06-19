@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32505.173
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MacrosAPI-v3", "MacrosAPI-v3\MacrosAPI-v3.csproj", "{6C3728BE-12A0-42E1-9F8A-229764D85BF6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{73737DE1-1644-49D8-B087-11F3DB6ADAD0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6C3728BE-12A0-42E1-9F8A-229764D85BF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C3728BE-12A0-42E1-9F8A-229764D85BF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C3728BE-12A0-42E1-9F8A-229764D85BF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C3728BE-12A0-42E1-9F8A-229764D85BF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73737DE1-1644-49D8-B087-11F3DB6ADAD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73737DE1-1644-49D8-B087-11F3DB6ADAD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73737DE1-1644-49D8-B087-11F3DB6ADAD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73737DE1-1644-49D8-B087-11F3DB6ADAD0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {09CD8C4B-300C-4D48-9C69-F6FBD2F4528E}
+	EndGlobalSection
+EndGlobal
