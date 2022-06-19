@@ -333,5 +333,18 @@ namespace MacrosAPI_v3
         }
 
         #endregion
+
+        #region WinAPI
+        protected ushort GetKeyboardLayout()
+        {
+            return WinAPI.GetKeyboardLayout();
+        }
+
+        protected void SetKeyboardLayout(ushort layout, KeyboardLayoutFlags flags)
+        {
+            WinAPI.ActivateKeyboardLayout(layout, flags);
+        }
+
+        #endregion
     }
 }
