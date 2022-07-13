@@ -82,7 +82,10 @@ namespace MacrosAPI_v3
                     stopWatch.Start();
                     try
                     {
-                        _handler.OnUpdate();
+                        if (_handler != null)
+                        {
+                            _handler.OnUpdate();
+                        }
                     }
                     catch
                     {
@@ -111,7 +114,10 @@ namespace MacrosAPI_v3
                 while (keepUpdating)
                 {
                     stopWatch.Start();
-                    _handler.DriverUpdaterKeyBoard();
+                    if (_handler != null)
+                    {
+                        _handler.DriverUpdaterKeyBoard();
+                    }
                     stopWatch.Stop();
                     var elapsed = stopWatch.Elapsed.Milliseconds;
                     stopWatch.Reset();
@@ -135,7 +141,10 @@ namespace MacrosAPI_v3
                 while (keepUpdating)
                 {
                     stopWatch.Start();
-                    _handler.DriverUpdaterMouse();
+                    if (_handler != null)
+                    {
+                        _handler.DriverUpdaterMouse();
+                    }
                     stopWatch.Stop();
                     var elapsed = stopWatch.Elapsed.Milliseconds;
                     stopWatch.Reset();

@@ -48,22 +48,22 @@ namespace MacrosAPI_v3
 
         #region Загрузка и выгрузка плагина
 
-        protected void LoadPlugin(Macros macros)
+        protected void LoadMacros(Macros macros)
         {
-            Handler.UnLoadMacros(macros);
+            //Handler.UnLoadMacros(macros);
             Handler.LoadMacros(macros);
         }
 
-        protected void UnLoadPlugin(Macros macros)
+        protected void UnLoadMacros(Macros macros)
         {
             Handler.UnLoadMacros(macros);
 
             if (Handler.OnUnloadPlugin != null) Handler.OnUnloadPlugin(macros);
         }
 
-        protected void UnLoadPlugin()
+        protected void UnLoadMacros()
         {
-            UnLoadPlugin(this);
+            UnLoadMacros(this);
         }
 
         protected void RunScript(FileInfo filename)
@@ -340,9 +340,14 @@ namespace MacrosAPI_v3
             return WinAPI.GetKeyboardLayout();
         }
 
-        protected void SetKeyboardLayout(ushort layout, KeyboardLayoutFlags flags)
+        protected uint SetKeyboardLayout(ushort layout, KeyboardLayoutFlags flags)
         {
-            WinAPI.ActivateKeyboardLayout(layout, flags);
+            return WinAPI.ActivateKeyboardLayout(layout, flags);
+        }
+
+        protected uint SetKeyboardLayout(KeyBoardLayouts layout, KeyboardLayoutFlags flags)
+        {
+            return WinAPI.ActivateKeyboardLayout(layout, flags);
         }
 
         #endregion

@@ -66,7 +66,7 @@ namespace MacrosAPI_v3
                         "using System.Net;",
                         "using System.Threading;",
                         "using System.Windows.Forms;",
-                        "using MacrosAPI_v2;",
+                        "using MacrosAPI_v3;",
                         String.Join("\n", libs),
                         "namespace ScriptLoader {",
                         "public class Script {",
@@ -94,6 +94,7 @@ namespace MacrosAPI_v3
 
                     for (int i = 0; i < result.Errors.Count; i++)
                     {
+                        //Console.WriteLine(result.Errors[i].ErrorText + " | " + result.Errors[i].Line);
                         throw new CSharpException(CSErrorType.LoadError,
                             new InvalidOperationException(result.Errors[i].ErrorText + " | " + result.Errors[i].Line));
                     }
@@ -159,9 +160,9 @@ namespace MacrosAPI_v3
         {
             SetMaster(apiHandler);
         }
-        new public void LoadPlugin(Macros bot)
+        new public void LoadMacros(Macros bot)
         {
-            base.LoadPlugin(bot);
+            base.LoadMacros(bot);
         }
     }
 }

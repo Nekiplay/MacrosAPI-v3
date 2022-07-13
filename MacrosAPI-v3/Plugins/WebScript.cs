@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
-using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading;
 using static MacrosAPI_v3.MacrosLoader;
 
-namespace MacrosAPI_v3
+namespace MacrosAPI_v3.Plugins
 {
-    public class Script : Macros
+    public class WebScript : Macros
     {
         private string file = "";
         private string[] lines = new string[0];
@@ -19,9 +17,9 @@ namespace MacrosAPI_v3
         private Thread thread;
         private Dictionary<string, object> localVars = new Dictionary<string, object>();
 
-        public Script(FileInfo filename)
+        public WebScript(string url)
         {
-            file = filename.FullName;
+            this.file = url;
         }
 
         public static bool LookForScript(ref string filename)
@@ -57,17 +55,16 @@ namespace MacrosAPI_v3
 
         public override void Initialize()
         {
-            if (LookForScript(ref file))
+            using (System.Net.WebClient wc = new System.Net.WebClient())
             {
-                lines = System.IO.File.ReadAllLines(file, Encoding.UTF8);
-                csharp = file.EndsWith(".cs");
-                thread = null;
+                wc.Encoding = Encoding.Default;
+                string res = wc.DownloadString(file);
 
-            }
-            else
-            {
-                UnLoadMacros();
-            }
+                lines = res.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
+            };
+            csharp = true;
+            thread = null;
+
         }
         public override void Update()
         {
