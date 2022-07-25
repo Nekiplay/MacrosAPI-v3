@@ -298,7 +298,7 @@ namespace MacrosAPI_v3
 
         #endregion
 
-        protected Bitmap GetScreenShot(Process process)
+        protected Bitmap GetScreenshot(Process process)
         {
             var hwnd = process.MainWindowHandle;
 
@@ -316,13 +316,16 @@ namespace MacrosAPI_v3
             }
         }
 
-        protected Process GetActiveProcess()
+        protected Process GetActiveProcess
         {
-            var h = WinAPI.GetForegroundWindow();
-            var pid = 0;
-            WinAPI.GetWindowThreadProcessId(h, ref pid);
-            var p = Process.GetProcessById(pid);
-            return p;
+            get
+            {
+                var h = WinAPI.GetForegroundWindow();
+                var pid = 0;
+                WinAPI.GetWindowThreadProcessId(h, ref pid);
+                var p = Process.GetProcessById(pid);
+                return p;
+            }
         }
 
         protected void PluginPostObject(object obj)

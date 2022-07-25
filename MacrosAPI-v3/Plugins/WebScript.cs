@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Reflection;
 using System.Text;
 using System.Threading;
 using static MacrosAPI_v3.MacrosLoader;
@@ -40,13 +38,13 @@ namespace MacrosAPI_v3.Plugins
             if (csharp) //C# compiled script
             {
                 //Initialize thread on first update
-            if (thread == null && lines.Length != 0)
+                if (thread == null && lines.Length != 0)
                 {
                     thread = new Thread(() =>
                     {
                         Run(this, lines, args, localVars);
                     });
-                thread.Name = "MCC Script - " + url;
+                    thread.Name = "MCC Script - " + url;
                     thread.Start();
                 }
 

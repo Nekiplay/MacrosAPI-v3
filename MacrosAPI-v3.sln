@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DriverInstaller", "DriverInstaller\DriverInstaller.csproj", "{2260A280-7969-47A9-B9E1-A50594F3B397}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test NET Core", "Test NET Core\Test NET Core.csproj", "{BD346A6E-984C-4FE6-BEBE-3C0578D841B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{2260A280-7969-47A9-B9E1-A50594F3B397}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2260A280-7969-47A9-B9E1-A50594F3B397}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2260A280-7969-47A9-B9E1-A50594F3B397}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD346A6E-984C-4FE6-BEBE-3C0578D841B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD346A6E-984C-4FE6-BEBE-3C0578D841B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD346A6E-984C-4FE6-BEBE-3C0578D841B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD346A6E-984C-4FE6-BEBE-3C0578D841B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

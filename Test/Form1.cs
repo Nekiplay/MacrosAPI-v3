@@ -25,7 +25,7 @@ namespace Test
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            var code = System.IO.File.ReadAllLines("Test.cs", Encoding.UTF8);
+            string[] code = File.ReadAllLines("Test.cs", Encoding.UTF8);
             macrosManager.LoadMacros(new StringScript(code));
             macrosManager.LoadMacros(new WebScript("https://github.com/Nekiplay/Temp/raw/main/Test3.cs"));
             //macrosManager.LoadMacros(new FileScript(new FileInfo("Test.cs")));

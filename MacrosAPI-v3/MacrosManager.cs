@@ -15,11 +15,12 @@ namespace MacrosAPI_v3
 
         private readonly Dictionary<string, List<Macros>> registeredPluginsPluginChannels =
             new Dictionary<string, List<Macros>>();
+        
+        private Dictionary<int, KeyList> downedKeys = new Dictionary<int, KeyList>();
 
-        public Dictionary<int, KeyList> downedKeys = new Dictionary<int, KeyList>();
         public IntPtr keyboard;
-
         public int keyboardDeviceID = 1;
+
         public IntPtr mouse;
         public int mouseDeviceID = 1;
 
@@ -157,12 +158,12 @@ namespace MacrosAPI_v3
             }
 
             Interception.Stroke stroke = new Interception.Stroke();
-            while (Interception.Receive(keyboard, keyboardDeviceID, ref stroke, 1) > 0)
+            while (Interception.Receive(keyboard, keyboardDeviceIDdeviceID, ref stroke, 1) > 0)
             {
                 var key = ToKey(stroke.Key);
                 var processed = false;
 
-                var deviceDownedKeys = GetOrCreateKeyList(downedKeys, keyboardDeviceID);
+                var deviceDownedKeys = GetOrCreateKeyList(downedKeys, keyboardDeviceIDdeviceID);
                 switch (stroke.Key.State.IsKeyDown())
                 {
                     case true:
@@ -185,7 +186,7 @@ namespace MacrosAPI_v3
                 }
 
                 if (!processed)
-                    Interception.Send(keyboard, keyboardDeviceID, ref stroke, 1);
+                    Interception.Send(keyboard, keyboardDeviceIDdeviceID, ref stroke, 1);
             }
         }
 
