@@ -16,7 +16,7 @@ namespace MacrosAPI_v3
         private readonly Dictionary<string, List<Macros>> registeredPluginsPluginChannels =
             new Dictionary<string, List<Macros>>();
         
-        private Dictionary<int, KeyList> downedKeys = new Dictionary<int, KeyList>();
+        public Dictionary<int, KeyList> downedKeys = new Dictionary<int, KeyList>();
 
         public IntPtr keyboard;
         public int keyboardDeviceID = 1;
