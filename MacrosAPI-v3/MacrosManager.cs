@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using KeyList = System.Collections.Generic.List<MacrosAPI_v3.Key>;
 
 namespace MacrosAPI_v3
