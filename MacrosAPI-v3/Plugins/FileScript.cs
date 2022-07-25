@@ -24,50 +24,13 @@ namespace MacrosAPI_v3
             file = filename.FullName;
         }
 
-        public static bool LookForScript(ref string filename)
-        {
-            //Automatically look in subfolders and try to add ".txt" file extension
-            char dir_slash = MacrosManager.isUsingMono ? '/' : '\\';
-            string[] files = new string[]
-            {
-                filename
-            };
-
-            foreach (string possible_file in files)
-            {
-                if (System.IO.File.Exists(possible_file))
-                {
-                    filename = possible_file;
-                    return true;
-                }
-            }
-
-            string caller = "Script";
-            try
-            {
-                StackFrame frame = new StackFrame(1);
-                MethodBase method = frame.GetMethod();
-                Type type = method.DeclaringType;
-                caller = type.Name;
-            }
-            catch { }
-
-            return false;
-        }
+        
 
         public override void Initialize()
         {
-            if (LookForScript(ref file))
-            {
-                lines = System.IO.File.ReadAllLines(file, Encoding.UTF8);
-                csharp = file.EndsWith(".cs");
-                thread = null;
-
-            }
-            else
-            {
-                UnLoadMacros();
-            }
+            lines = System.IO.File.ReadAllLines(file, Encoding.UTF8);
+            csharp = file.EndsWith(".cs");
+            thread = null;
         }
         public override void Update()
         {

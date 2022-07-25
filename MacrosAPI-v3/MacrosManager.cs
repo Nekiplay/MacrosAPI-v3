@@ -27,10 +27,10 @@ namespace MacrosAPI_v3
 
         public MacrosManager(MacrosUpdater updater)
         {
-            //keyboard = Interception.CreateContext();
-            //Interception.SetFilter(keyboard, Interception.IsKeyboard, Interception.Filter.All);
-            //mouse = Interception.CreateContext();
-            //Interception.SetFilter(mouse, Interception.IsMouse, Interception.Filter.All);
+            keyboard = Interception.CreateContext();
+            Interception.SetFilter(keyboard, Interception.IsKeyboard, Interception.Filter.All);
+            mouse = Interception.CreateContext();
+            Interception.SetFilter(mouse, Interception.IsMouse, Interception.Filter.All);
             this.updater = updater;
             updater.SetHandler(this);
             updater.StartUpdater();

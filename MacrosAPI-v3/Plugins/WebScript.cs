@@ -27,7 +27,6 @@ namespace MacrosAPI_v3.Plugins
             {
                 wc.Encoding = Encoding.UTF8;
                 string res = wc.DownloadString(url);
-                //Encoding.UTF8
 
                 lines = res.Split(new[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
             };
