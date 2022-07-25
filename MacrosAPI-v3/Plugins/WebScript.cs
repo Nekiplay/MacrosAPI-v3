@@ -20,10 +20,6 @@ namespace MacrosAPI_v3.Plugins
         public WebScript(string url)
         {
             this.url = url;
-            }
-            catch { }
-
-            return false;
         }
 
         public override void Initialize()
