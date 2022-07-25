@@ -24,7 +24,6 @@ namespace MacrosAPI_v3
             file = filename.FullName;
         }
 
-        
 
         public override void Initialize()
         {

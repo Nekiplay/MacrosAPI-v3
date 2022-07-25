@@ -49,7 +49,6 @@ namespace MacrosAPI_v3
                             script.Add(line);
                         else extensions.Add(line);
                     }
-                    Console.WriteLine(String.Join("\n", script));
                     //Console.WriteLine(String.Join("\n", extensions));
                     //Add return statement if missing
                     if (script.All(line => !line.StartsWith("return ") && !line.Contains(" return ")))
@@ -92,7 +91,6 @@ namespace MacrosAPI_v3
                     parameters.GenerateInMemory = true;
                     parameters.ReferencedAssemblies.AddRange(dlls.ToArray());
                     CompilerResults result = compiler.CompileAssemblyFromSource(parameters, code);
-
                     for (int i = 0; i < result.Errors.Count; i++)
                     {
                         //Console.WriteLine(result.Errors[i].ErrorText + " | " + result.Errors[i].Line);
