@@ -24,12 +24,15 @@ namespace MacrosAPI_v3
 
         private readonly MacrosUpdater updater;
 
-        public MacrosManager(MacrosUpdater updater)
+        public MacrosManager(MacrosUpdater updater, bool debug = false)
         {
-            keyboard = Interception.CreateContext();
-            Interception.SetFilter(keyboard, Interception.IsKeyboard, Interception.Filter.All);
-            mouse = Interception.CreateContext();
-            Interception.SetFilter(mouse, Interception.IsMouse, Interception.Filter.All);
+            if (!debug)
+            {
+                keyboard = Interception.CreateContext();
+                Interception.SetFilter(keyboard, Interception.IsKeyboard, Interception.Filter.All);
+                mouse = Interception.CreateContext();
+                Interception.SetFilter(mouse, Interception.IsMouse, Interception.Filter.All);
+            }
             this.updater = updater;
             updater.SetHandler(this);
             updater.StartUpdater();

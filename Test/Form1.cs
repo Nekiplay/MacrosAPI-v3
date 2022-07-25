@@ -1,14 +1,9 @@
 ﻿using MacrosAPI_v3;
 using MacrosAPI_v3.Plugins;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Test
@@ -25,29 +20,13 @@ namespace Test
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            string[] code = File.ReadAllLines("Test.cs", Encoding.UTF8);
-            macrosManager.LoadMacros(new StringScript(code));
-            macrosManager.LoadMacros(new WebScript("https://github.com/Nekiplay/Temp/raw/main/Test3.cs"));
-            //macrosManager.LoadMacros(new FileScript(new FileInfo("Test.cs")));
+            macrosManager.LoadMacros(new FileScript(new FileInfo("Donate Events.cs")));
 
-        }
-
-        public class Test : Macros
-        {
-            public override bool OnKeyDown(Key key, bool repeat)
+            macrosManager.OnMacrosLoad += (m) => 
             {
-                if (key == Key.R)
-                {
-                    KeyDown(Key.G, Key.B, Key.L, Key.J, Key.H);
-                    KeyUp(Key.G, Key.B, Key.L, Key.J, Key.H);
+                Console.WriteLine("Макрос " + m.ToString().Split('+').LastOrDefault() + " загружен");;
+            };
 
-                    KeyDown(Key.Enter);
-                    KeyUp(Key.Enter);
-                    return true;
-                }
-                return false;
-            }
         }
     }
-
 }

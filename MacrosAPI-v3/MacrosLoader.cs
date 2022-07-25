@@ -63,7 +63,6 @@ namespace MacrosAPI_v3
                         "using System.IO;",
                         "using System.Net;",
                         "using System.Threading;",
-                        "using System.Windows.Forms;",
                         "using MacrosAPI_v3;",
                         String.Join("\n", libs),
                         "namespace ScriptLoader {",
