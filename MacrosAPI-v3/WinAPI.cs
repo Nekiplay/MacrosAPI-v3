@@ -12,6 +12,13 @@ namespace MacrosAPI_v3
         KLF_ACTIVATE = 0x00000001,
         KLF_SETFORPROCESS = 0x00000100
     }
+
+    public enum KeyBoardLayouts
+    {
+        Russia = 1049,
+        English = 1033,
+    }
+    
     public class WinAPI
     {
         [DllImport("user32.dll")]
@@ -19,7 +26,10 @@ namespace MacrosAPI_v3
 
         [DllImport("user32.dll", SetLastError = true)]
         public static extern uint ActivateKeyboardLayout(uint hkl, KeyboardLayoutFlags Flags);
-
+        public static uint ActivateKeyboardLayout(KeyBoardLayouts hkl, KeyboardLayoutFlags Flags)
+        {
+            return ActivateKeyboardLayout((uint)hkl, Flags);
+        }
         public static ushort GetKeyboardLayout()
         {
             Int32 o = 0;

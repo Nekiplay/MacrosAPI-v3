@@ -42,14 +42,15 @@ namespace MacrosAPI_v3
                         }
                         else if (line.StartsWith("//Script"))
                         {
-                            if (line.EndsWith("Extensions"))
+                            if (line.EndsWith("Extensions ") || line.EndsWith("Extensions"))
                                 scriptMain = false;
                         }
                         else if (scriptMain)
                             script.Add(line);
                         else extensions.Add(line);
                     }
-
+                    Console.WriteLine(String.Join("\n", script));
+                    //Console.WriteLine(String.Join("\n", extensions));
                     //Add return statement if missing
                     if (script.All(line => !line.StartsWith("return ") && !line.Contains(" return ")))
                         script.Add("return null;");
@@ -66,7 +67,7 @@ namespace MacrosAPI_v3
                         "using System.Net;",
                         "using System.Threading;",
                         "using System.Windows.Forms;",
-                        "using MacrosAPI_v2;",
+                        "using MacrosAPI_v3;",
                         String.Join("\n", libs),
                         "namespace ScriptLoader {",
                         "public class Script {",
@@ -94,6 +95,7 @@ namespace MacrosAPI_v3
 
                     for (int i = 0; i < result.Errors.Count; i++)
                     {
+                        //Console.WriteLine(result.Errors[i].ErrorText + " | " + result.Errors[i].Line);
                         throw new CSharpException(CSErrorType.LoadError,
                             new InvalidOperationException(result.Errors[i].ErrorText + " | " + result.Errors[i].Line));
                     }
@@ -159,9 +161,9 @@ namespace MacrosAPI_v3
         {
             SetMaster(apiHandler);
         }
-        new public void LoadPlugin(Macros bot)
+        new public void LoadMacros(Macros bot)
         {
-            base.LoadPlugin(bot);
+            base.LoadMacros(bot);
         }
     }
 }

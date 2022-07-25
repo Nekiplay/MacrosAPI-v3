@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MacrosAPI_v3
+﻿namespace MacrosAPI_v3
 {
     public enum Key : ushort
     {

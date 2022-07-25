@@ -50,7 +50,9 @@
     <Compile Include="MacrosManager.cs" />
     <Compile Include="MacrosUpdater.cs" />
     <Compile Include="MouseKey.cs" />
-    <Compile Include="Plugins\Script.cs" />
+    <Compile Include="Plugins\FileScript.cs" />
+    <Compile Include="Plugins\StringScript.cs" />
+    <Compile Include="Plugins\WebScript.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WinAPI.cs" />
   </ItemGroup>

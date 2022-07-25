@@ -6,11 +6,11 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
+using static MacrosAPI_v3.MacrosLoader;
 
-namespace MacrosAPI_v3.Plugins
+namespace MacrosAPI_v3
 {
-    public class Script : Macros
+    public class FileScript : Macros
     {
         private string file = "";
         private string[] lines = new string[0];
@@ -19,7 +19,7 @@ namespace MacrosAPI_v3.Plugins
         private Thread thread;
         private Dictionary<string, object> localVars = new Dictionary<string, object>();
 
-        public Script(FileInfo filename)
+        public FileScript(FileInfo filename)
         {
             file = filename.FullName;
         }
@@ -66,7 +66,7 @@ namespace MacrosAPI_v3.Plugins
             }
             else
             {
-                UnLoadPlugin();
+                UnLoadMacros();
             }
         }
         public override void Update()
@@ -78,7 +78,7 @@ namespace MacrosAPI_v3.Plugins
                 {
                     thread = new Thread(() =>
                     {
-                        MacrosLoader.Run(this, lines, args, localVars);
+                        Run(this, lines, args, localVars);
                     });
                     thread.Name = "MCC Script - " + file;
                     thread.Start();
@@ -87,7 +87,7 @@ namespace MacrosAPI_v3.Plugins
                 //Unload bot once the thread has finished running
                 if (thread != null && !thread.IsAlive)
                 {
-                    UnLoadPlugin();
+                    UnLoadMacros();
                 }
             }
         }
