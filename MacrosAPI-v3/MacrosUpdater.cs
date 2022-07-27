@@ -93,11 +93,12 @@ namespace MacrosAPI_v3
                     if (elapsed < 1) Thread.Sleep(1 - elapsed);
                 }
             }
-            catch (IOException)
+            catch
             {
-            }
-            catch (ObjectDisposedException)
-            {
+                if (_handler != null)
+                {
+                    _handler.Quit();
+                }
             }
         }
 
@@ -120,11 +121,12 @@ namespace MacrosAPI_v3
                     if (elapsed < 1) Thread.Sleep(1 - elapsed);
                 }
             }
-            catch (IOException)
+            catch
             {
-            }
-            catch (ObjectDisposedException)
-            {
+                if (_handler != null)
+                {
+                    _handler.Quit();
+                }
             }
         }
 
@@ -147,14 +149,14 @@ namespace MacrosAPI_v3
                     if (elapsed < 1) Thread.Sleep(1 - elapsed);
                 }
             }
-            catch (IOException)
+            catch
             {
-            }
-            catch (ObjectDisposedException)
-            {
+                if (_handler != null)
+                {
+                    _handler.Quit();
+                }
             }
         }
-
         #endregion
     }
 }
