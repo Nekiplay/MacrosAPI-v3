@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MacrosAPI_v3.Plugins;
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
@@ -64,9 +66,19 @@ namespace MacrosAPI_v3
             UnLoadMacros(this);
         }
 
-        protected void RunScript(FileInfo filename)
+        protected void LoadMacros(FileInfo filename)
         {
             Handler.LoadMacros(new FileScript(filename));
+        }
+
+        protected void LoadMacros(List<string> code)
+        {
+            Handler.LoadMacros(new StringScript(code));
+        }
+
+        protected void LoadMacros(string[] code)
+        {
+            Handler.LoadMacros(new StringScript(code));
         }
 
         #endregion
