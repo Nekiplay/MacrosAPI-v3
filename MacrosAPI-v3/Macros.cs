@@ -81,6 +81,11 @@ namespace MacrosAPI_v3
             Handler.LoadMacros(new StringScript(code));
         }
 
+        protected void LoadMacros(string code)
+        {
+            Handler.LoadMacros(new StringScript(code));
+        }
+
         #endregion
 
         #region Ивенты плагина
