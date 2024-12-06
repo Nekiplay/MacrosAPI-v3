@@ -10,4 +10,4 @@ Macros API поможет вам в создание макросов под л�
 
 Пример макроса
 
-![image](https://user-images.githubusercontent.com/35975332/144324387-2da6441c-dd0b-4c1b-bf67-0338bbcc8b86.png)
+![image](https://github.com/user-attachments/assets/8c97a430-49df-4ebc-aec0-9a5bf6af29a4)
